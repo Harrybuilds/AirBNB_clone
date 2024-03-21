@@ -1,13 +1,15 @@
+0x00. AirBnB clone - The console
+
 # The AirBnB Clone Project
 ![AirBnB Logo](https://www.pngitem.com/pimgs/m/132-1322125_transparent-background-airbnb-logo-hd-png-download.png)
 
 ## Project Description
-In this AirBnB clone project we worked on the backend of the project while interfacing it with a console application with the help of the cmd module in python.
+This is the first part of the AirBnB clone project where we worked on the backend of the project whiles interfacing it with a console application with the help of the cmd module in python.
 
 Data (python objects) generated are stored in a json file and can be accessed with the help of the json module in python
 
 ## Description of the command interpreter:
-The interface of the application is just like the Bash shell except that this one has a limited number of accepted commands that were solely defined for the purposes of the usage of the AirBnB website.
+The interface of the application is just like the Bash shell except that this has a limited number of accepted commands that were solely defined for the purposes of the usage of the AirBnB website.
 
 This command line interpreter  serves as the frontend of the web app where users can interact with the backend which was developed with python OOP programming.
 
@@ -18,7 +20,7 @@ Some of the commands available are:
 - destroy
 - count
 
-And as a part of the implementation of the command line interpreter coupled with the backend and file storage system, the folowing actions can be performed:
+And as part of the implementation of the command line interpreter coupled with the backend and file storage system, the folowing actions can be performed:
 -   Creating new objects (ex: a new User or a new Place)
 -   Retrieving an object from a file, a database etc…
 -   Doing operations on objects (count, compute stats, etc…)
@@ -33,7 +35,7 @@ These instructions will get you a copy of the project up and running on your loc
 You will need to clone the repository of the project from Github. This will contain the simple shell program and all of its dependencies.
 
 ```
-git clone https://github.com/Emperoar0147/AirBnB_clone.git
+git clone https://github.com/jzamora5/AirBnB_clone.git
 ```
 After cloning the repository you will have a folder called AirBnB_clone. In here there will be several files that allow the program to work.
 
@@ -58,7 +60,6 @@ After cloning the repository you will have a folder called AirBnB_clone. In here
 >models/review.py: Review class that inherits from BaseModel
 
 
-
 ## How to use it
 It can work in two different modes:
 
@@ -70,11 +71,9 @@ In **Interactive mode**, the console will display a prompt (hbnb) indicating tha
 ```
 $ ./console.py
 (hbnb) help
-
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-
 (hbnb) 
 (hbnb) 
 (hbnb) quit
@@ -87,7 +86,6 @@ In **Non-interactive mode**, the shell will need to be run with a command input 
 ```
 $ echo "help" | ./console.py
 (hbnb)
-
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
@@ -98,7 +96,6 @@ help
 $
 $ cat test_help | ./console.py
 (hbnb)
-
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
@@ -119,12 +116,10 @@ Most commands have several options or arguments that can be used when executing 
 Example:
 
 ```
-
 user@ubuntu:~/AirBnB$ ./console.py
 (hbnb) create BaseModel
 49faff9a-6318-451f-87b6-910505c55907
 user@ubuntu:~/AirBnB$ ./console.py
-
 ```
 
 or
