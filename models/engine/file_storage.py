@@ -56,6 +56,11 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as reader:
                 from models.base_model import BaseModel
                 from models.user import User
+                from models.city import City
+                from models.amenity import Amenity
+                from models.state import State
+                from models.place import Place
+                from models.review import Review
                 data = load(reader)
                 for k, v in data.items():
                     className = v['__class__']
