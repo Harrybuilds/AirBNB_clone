@@ -1,4 +1,4 @@
-#!/usr/bin/py
+#!/usr/bin/python3
 
 """
 module to house Review class that
