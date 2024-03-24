@@ -42,14 +42,17 @@ class HBNBCOMMAND(Cmd):
         and handle any pre-processing to the command
         before calling on all other needed methods
         """
-        if "()" in line and "." in line:
+        if "(" in line and ")" in line:
+            otherargs = ''
             line = line.replace('(', ' ').replace(')', ' ')
             line = line.split(".", maxsplit=1)
-            line = f"{line[1]} {line[0].capitalize()}"
-        elif "()" not in line and '.' in line:
-            line = line.split(".", maxsplit=1)
-            line = f"{line[1]} {line[0].capitalize()}"
-        if not sys.stdin.isatty():
+            if " " in line[1]:
+                line[1] = line[1].split(" ", maxsplit=1)
+                otherargs = line[1][1][1:-2]
+#                if type(otherargs) == str:
+#                    print("yes it is", type(otherargs))
+#                    otherargs = repr(otherargs)
+            line = f"{line[1][0]} {line[0]} {otherargs}"
             return line
         else:
             return line
@@ -188,6 +191,25 @@ class HBNBCOMMAND(Cmd):
         else:
             allobj = [str(storage[k]) for k in storage]
             print(allobj)
+
+    def do_count(self, classname):
+        """
+        func -> retrieve the number of instances
+        of a class
+
+        Usage: <class name>.count() || count <class name>
+        """
+        if classname:
+            con = storage
+            cName = classname.split(" ")[0]
+            if cName in HBNBCOMMAND.classes:
+                sClass = [str(con[k]) for k in con if k.startswith(cName)]
+                print(len(sClass))
+            else:
+                print("** class doesn't exist **")
+        else:
+            allobj = [str(storage[k]) for k in storage]
+            print(len(allobj))
 
     def do_update(self, attribute):
         """
