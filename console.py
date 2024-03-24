@@ -5,6 +5,7 @@ Module to handle the Console Application
 for the AirBnB project
 """
 
+
 from cmd import Cmd
 from models.user import User
 from models.base_model import BaseModel
@@ -118,7 +119,6 @@ class HBNBCOMMAND(Cmd):
                         print("** no instance found **")
                     else:
                         print(storage.get(classWithId))
-
         else:
             print("** class name missing **")
 

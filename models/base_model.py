@@ -5,6 +5,7 @@ Module to houses the BaseModel class
 where other classes inherits from
 """
 
+
 from models import storage
 from uuid import uuid4
 from datetime import datetime
