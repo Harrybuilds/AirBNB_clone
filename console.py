@@ -41,9 +41,17 @@ class HBNBCOMMAND(Cmd):
         and handle any pre-processing to the command
         before calling on all other needed methods
         """
+        if "()" in line and "." in line:
+            line = line.replace('(', ' ').replace(')', ' ')
+            line = line.split(".", maxsplit=1)
+            line = f"{line[1]} {line[0].capitalize()}"
+        elif "()" not in line and '.' in line:
+            line = line.split(".", maxsplit=1)
+            line = f"{line[1]} {line[0].capitalize()}"
         if not sys.stdin.isatty():
             return line
-        return line
+        else:
+            return line
 
     def do_create(self, classname):
         """
