@@ -111,17 +111,21 @@ class HBNBCOMMAND(Cmd):
             splitted_command = instanceDetails.split(" ")
             className = splitted_command[0]
             if className not in HBNBCOMMAND.classes:
-                print("** class doesn't exists **")
+                print("** class doesn't exist **")
+                return
             else:
                 if len(splitted_command) < 2:
                     print("** instance id missing **")
+                    return
                 else:
                     instanceId = splitted_command[1]
                     classWithId = f"{className}.{instanceId}"
                     if classWithId not in storage:
                         print("** no instance found **")
+                        return
                     else:
                         print(storage.get(classWithId))
+                        return
         else:
             print("** class name missing **")
 
@@ -151,21 +155,26 @@ class HBNBCOMMAND(Cmd):
             splitted_command = instanceDetails.split(" ")
             className = splitted_command[0]
             if className not in HBNBCOMMAND.classes:
-                print("** class doesn't exists **")
+                print("** class doesn't exist **")
+                return
             else:
                 if len(splitted_command) < 2:
                     print("** instance id missing **")
+                    return
                 else:
                     instanceId = splitted_command[1]
                     classWithId = f"{className}.{instanceId}"
                     if classWithId not in storage:
                         print("** no instance found **")
+                        return
                     else:
                         del storage[classWithId]
                         saveToFile.save()
+                        return
 
         else:
             print("** class name missing **")
+            return
 
     def do_all(self, line):
         """
@@ -186,11 +195,14 @@ class HBNBCOMMAND(Cmd):
             if cName in HBNBCOMMAND.classes:
                 sClass = [str(con[k]) for k in con if k.startswith(cName)]
                 print(sClass)
+                return
             else:
                 print("** class doesn't exist **")
+                return
         else:
             allobj = [str(storage[k]) for k in storage]
             print(allobj)
+            return
 
     def do_count(self, classname):
         """
@@ -205,11 +217,14 @@ class HBNBCOMMAND(Cmd):
             if cName in HBNBCOMMAND.classes:
                 sClass = [str(con[k]) for k in con if k.startswith(cName)]
                 print(len(sClass))
+                return
             else:
                 print("** class doesn't exist **")
+                return
         else:
             allobj = [str(storage[k]) for k in storage]
             print(len(allobj))
+            return
 
     def do_update(self, attribute):
         """
@@ -234,7 +249,7 @@ class HBNBCOMMAND(Cmd):
         If the id is missing,
         print ** instance id missing ** (ex: $ update BaseModel)
 
-        If the instance of the class name doesn’t exist for the id,
+        If the instance of the class name doesn’t exist for the id,0
         print ** no instance found **
         (ex: $ update BaseModel 121212)
 
