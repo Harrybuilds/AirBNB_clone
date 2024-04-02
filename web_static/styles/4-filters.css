@@ -1,0 +1,9 @@
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.filters button {
+    margin-top: 11px; /* To vertically center the button */
+}
